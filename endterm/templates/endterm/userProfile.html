@@ -1,0 +1,20 @@
+{%include './menu.html'%}
+
+
+{%block content%}
+<div class="card" style="width: 18rem;">
+  {%if photo %}
+    <img src="{{photo.url}}" class="card-img-top">
+    {%endif%}
+    <div class="card-body">
+      <p class="card-text">My Profile:</p>
+        <p class="card-text">Nickname: </p>
+        <h4>{{nickname}}</h4>
+        <p class="card-text">Email: </p>
+        <h4>{{email}}</h4>
+        <p class="card-text">My chat code: </p>
+        <h4>{{user_chat_code}}</h4>   
+</div>
+<a class="btn btn-primary" href="../roomchat/{{user_chat_code}}">Enter My Chat Room</a>
+
+{% endblock %}

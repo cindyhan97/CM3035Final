@@ -1,0 +1,13 @@
+{%include './menu.html'%}
+{%block content%}
+<div class="card" style="width: 18rem;">
+    <img src="{{photo.url}}" class="card-img-top">
+    <div class="card-body">
+      <p class="card-text">User Profile:</p>
+        <p class="card-text">Nickname: </p>
+        <h4>{{nickname}}</h4>
+        <p class="card-text">User's id to add! : </p>
+        <h4>{{user_id}}</h4>
+</div>
+
+{% endblock %}

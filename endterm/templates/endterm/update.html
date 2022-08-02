@@ -1,0 +1,12 @@
+{%include './menu.html'%}
+
+{%block content%}
+{% csrf_token %}
+<h2>Update Your Infomation!</h2>
+<form method="post" action="../update">
+    {% csrf_token %}
+    {{ updateForm.as_p }}
+    <input type="submit" class = "btn btn-primary"name="submit" value="Submit" />
+</form>
+
+{% endblock %}

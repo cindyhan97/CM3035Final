@@ -1,0 +1,27 @@
+{% include  "./menu.html"%}
+{% block content %}
+
+<h1>Search</h1>
+<form role="search" action="../search" method="GET">
+  <label for="q">Search: </label>
+  <input type="text" name="q" placeholder="Input a email to search"  value="{{ query|escape }}" required>
+  <input type="submit" value="Search">
+</form>
+
+{% if query %}
+  <h2>Results for "{{ query|escape }}":</h2>
+  {% if results %}
+    <ul>
+    {% for user in results %}
+        <li>Username: {{ user|escape }}</l1>
+        <li>Email: {{ user.email|escape }}</l1>
+        <li>Profile: </l1><a class="btn btn-primary" href="../profile&id={{user.id}}">Profile</a>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No users found!</p>
+  {% endif %}
+{% endif %}
+{%endblock%}
+</body>
+</html>

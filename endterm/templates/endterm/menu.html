@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="../static/css/bootstrap.css" rel="stylesheet"/></link>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+            <li class="nav-item">
+                <a class="nav-link active" href="../">Start Here!</a>
+            </li>
+
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link active" href="../"> Hello! {{ user.username }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../logout"> LOG OUT </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../roomchat_enter">Join a Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../profile"> My Profile </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../update"> Update My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../post"> Post a article</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../checkRequest"> Check friend request!</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../friendlist"> Friend List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../send"> Add a New Friend</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../search"> Search A User</a>
+                </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../login"> LOG IN </a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../register"> Register</a>
+                    </li>
+                {% endif %}
+                </div>
+            </nav>
+        <br>

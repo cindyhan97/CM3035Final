@@ -1,0 +1,25 @@
+{% include  "./menu.html"%}
+{% block content %}
+
+<div class="card" style="width: 18rem;">
+    {%for request_id, sender_id, sender_nickname in requester_data %}
+    <div class="card-body">
+      <p class="card-text">Request_id:</p>
+      <h5>{{request_id}}</h5>
+      <p class="card-text">User's username:</p>
+      <h5>{{sender_id}}</h5>
+      <p class="card-text">User's nickname:</p>
+      <h5>{{sender_nickname}}</h5>
+      {%endfor%}
+    </div></div><br/>
+
+
+        <form action="../checkRequest" method="post" class="form">
+            {% csrf_token %}
+            Input the request's id Your wanna accpet: <input type="text" name="request_id" value="" size="50" />
+            <br/>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </body>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% include  "./menu.html"%}
+{% block content %} 
+
+<form action="../send" method="post" class="form">
+    {% csrf_token %}
+    The user's id you wanna add! : <input name="user_id" value="" size="50" />
+    <br/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

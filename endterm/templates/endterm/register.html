@@ -1,0 +1,20 @@
+{% include "./menu.html" %}
+{% block content %}
+
+<div class="col-xl-6">
+<h2>Register Now!</h2>
+        {% if registered %}
+        <strong>thank you for registering, please login and update your information! </strong></br>
+        <a href="../login" class="link-primary">Login</a>
+        {% else %}
+        <form method="post" action="../register">
+            {% csrf_token %}
+            {{ userform.as_p }}
+            <input type="submit" class = "btn btn-primary"name="submit" value="Submit" />
+        </form>
+</div>
+        {% endif %}
+{% endblock %}
+
+    </body>
+</html>

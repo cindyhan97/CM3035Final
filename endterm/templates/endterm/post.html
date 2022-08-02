@@ -1,0 +1,33 @@
+{%include './menu.html'%}
+
+{%block content%}
+
+<div class="d-flex justify-content-center">
+<h2>Post Your Article! </h2></br></br></br>
+<form method="post" action="../post">
+    {% csrf_token %}
+    {{ postForm.as_p }}
+    <input type="submit" class = "btn btn-primary"name="submit" value="Submit" />
+</form>
+</br>
+</div>
+{%for user_nickname,user_text,post_image1,post_image2,post_image3 in data%}
+</br>
+<div class="d-flex justify-content-center">
+    <figure class="figure w-25">
+      {%if post_image1 %}
+      <img src="{{post_image1.url}}" class="figure-img img-fluid rounded shadow-lg" alt="..." id= "media1"> 
+      {%endif%}
+      {%if post_image2 %}
+      <img src="{{post_image2.url}}" class="figure-img img-fluid rounded shadow-lg" alt="..." id= "media2">
+      {%endif%}
+      {%if post_image3 %}
+      <img src="{{post_image3.url}}" class="figure-img img-fluid rounded shadow-lg" alt="..." id= "media3">
+      {%endif%}
+      <figcaption class="figure-caption text-center font-weight-bold">Poster: {{user_nickname}}</figcaption>
+    <figcaption class="figure-caption text-center font-weight-bold"> {{user_text}}</figcaption>
+    </figure>
+</div> 
+{%endfor%}
+{% endblock %}
+</body>

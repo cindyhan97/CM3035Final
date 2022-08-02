@@ -1,0 +1,31 @@
+{%include './menu.html'%}
+{%block content%}
+{%for username, email, nickname, photo, firends_chat_code, id in friends_context%}
+<div class="card" style="width: 18rem;">
+    
+    <img src="{{photo.url}}" class="card-img-top">
+    <div class="card-body">
+      <p class="card-text">Friends' Profile:</p>
+      <p class="card-text">Username: </p>
+        <h4>{{username}}</h4>
+        <p class="card-text">Nickname: </p>
+        <h4>{{nickname}}</h4>
+        <p class="card-text">Email: </p>
+        <h4>{{email}}</h4>
+        <p class="card-text">Friend Chat code: </p>
+        <h4>{{firends_chat_code}}</h4>
+        <p class="card-text">Friend's id to remove: </p>
+        <h4>{{id}}</h4>
+        <a class="btn btn-primary" href="../roomchat/{{firends_chat_code}}}">Enter his/her Chat Room</a>
+      </div>
+        {%endfor%}
+</div><br/>
+
+
+<form action="../friendlist" method="post" class="form">
+    {% csrf_token %}
+    Input the friends' id you wanna remove: <input type="text" name="remove_id" value="" size="50" />
+    <br/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

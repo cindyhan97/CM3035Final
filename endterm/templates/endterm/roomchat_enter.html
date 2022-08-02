@@ -1,0 +1,21 @@
+
+{% include  './menu.html' %}
+    Which Public Chat room would you like to enter/create?<br>
+    <input id="roomname" type="text" size="100">
+    <input id="name_submit" type="button" value="Enter">
+
+    <script>
+        document.querySelector('#roomname').focus();
+        document.querySelector('#roomname').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#name_submit').click();
+            }
+        };
+
+        document.querySelector('#name_submit').onclick = function(e) {
+            var roomname = document.querySelector('#roomname').value;
+            window.location.replace( '/roomchat/' + roomname);
+        };
+    </script>
+</body>
+</html>
