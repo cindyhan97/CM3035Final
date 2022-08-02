@@ -1,0 +1,7 @@
+pip install django
+pip install bootstrap4
+pip install restframework
+pip install channels
+pip install redis
+pip install channels-redis
+redis\redis-server(The server must activate without the virtual environment!!!!)
